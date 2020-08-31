@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.win {
+  background-color: lightgreen;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.lose {
+  background-color: lightcoral;
+  padding: 1rem;
+  border: 1px solid black;
+}
