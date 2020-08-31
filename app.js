@@ -85,27 +85,39 @@ const warriorsGames = [
   },
 ];
 
-const ulParent = document.createElement('ul');
+// *****************************************
+//            JAVASCRIPT CODE
+// *****************************************
 
-for (let game of warriorsGames) {
-  const { awayTeam, homeTeam } = game;
-  const gameLi = document.createElement('li');
-  const { team: aTeam, points: aPoint } = awayTeam;
-  const { team: hTeam, points: hPoint } = homeTeam;
+const makeChart = (games) => {
+  const ulParent = document.createElement('ul');
+  for (let game of games) {
+    const { awayTeam, homeTeam } = game;
+    const gameLi = document.createElement('li');
+    gameLi.innerHTML = getScoreLine(game);
+
+    awayTeam.isWinner
+      ? gameLi.classList.add('win')
+      : gameLi.classList.add('lose');
+
+    ulParent.appendChild(gameLi);
+  }
+  return ulParent;
+};
+
+const getScoreLine = ({ awayTeam, homeTeam }) => {
+  const { points: aPoint } = awayTeam;
+  const { points: hPoint } = homeTeam;
+  const teamName = `${awayTeam.team} @ ${homeTeam.team}`;
+
   let scoreLine = '';
   if (aPoint > hPoint) {
     scoreLine = `<b>${awayTeam.points}</b> - ${homeTeam.points}`;
   } else {
     scoreLine = `${awayTeam.points} - <b>${homeTeam.points}</b>`;
   }
+  return `${teamName} ${scoreLine}`;
+};
 
-  awayTeam.isWinner
-    ? gameLi.classList.add('win')
-    : gameLi.classList.add('lose');
-
-  const teamName = `${awayTeam.team} @ ${homeTeam.team}`;
-  gameLi.innerHTML = `${teamName} ${scoreLine}`;
-  ulParent.appendChild(gameLi);
-}
-
-document.body.prepend(ulParent);
+const chart1 = makeChart(warriorsGames);
+document.body.prepend(chart1);
