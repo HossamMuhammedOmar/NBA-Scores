@@ -1,5 +1,5 @@
 # NBA Scores
 ### practice `DOM` 👉
-Document Object Model
+#### Document Object Model
 
 🔴 🔴 🔴 For Me 🔴 🔴 🔴
