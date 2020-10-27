@@ -2,4 +2,3 @@
 ### practice `DOM` 👉
 #### Document Object Model
 
-🔴 🔴 🔴 For Me 🔴 🔴 🔴
